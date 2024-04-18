@@ -1,4 +1,6 @@
-const renderGalleryItem = (image) => {
+export { renderGalleryItem };
+
+const renderGalleryItem = image => {
   const galleryItem = document.createElement('div');
   galleryItem.classList.add('gallery-item');
 
@@ -10,5 +12,3 @@ const renderGalleryItem = (image) => {
   galleryItem.appendChild(imageElement);
   return galleryItem;
 };
-
-export { renderGalleryItem };
