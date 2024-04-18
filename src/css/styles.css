@@ -65,28 +65,33 @@ button {
 }
 
 .gallery-item {
-  width: 360px;
+  max-width: 360px;
   border-color: #000;
   border-radius: 10px;
-  background-color: #f1e5e5; /* Темный цвет фона */
-  color: #141313; /* Цвет текста */
-  padding: 5px; /* Отступы для контента внутри элемента */
+  background-color: #f3efef;
+  color: #141313;
+  padding: 8px;
+ 
 }
 
 .gallery-image {
   width: 360px;
-  height: 200px;
-}
+  height: 152px;
+  object-fit: cover;
+  }
 
-.image-description {
+  .image-description {
   width: 100%;
   display: flex;
   flex-wrap: wrap;
-  gap: 8px; /* Пространство между элементами в описании */
+  gap: 8px;
+  height: 48px;
 }
 
 p {
-  flex: 1 0 calc(25% - 8px); /* 25% ширины контейнера за вычетом пространства между элементами */
+  flex: 1 0 calc(25% - 8px);
   text-align: center;
   display: block;
+  margin: 0;
+
 }
