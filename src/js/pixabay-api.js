@@ -1,8 +1,6 @@
-export { fetchImages };
-
 const fetchImages = imageName => {
   const params = new URLSearchParams({
-    key: '/',
+    key: '43257853-194068c59ee252fa44b7d008e',
     q: imageName,
     image_type: 'photo',
     orientation: 'horizontal',
@@ -25,3 +23,5 @@ const fetchImages = imageName => {
     })
     .catch(error => console.log(error));
 };
+
+export { fetchImages };

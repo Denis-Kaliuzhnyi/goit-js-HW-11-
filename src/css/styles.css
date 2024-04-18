@@ -52,3 +52,18 @@ button {
   letter-spacing: 0.04em;
   color: #808080;
 }
+
+.gallery-item {
+  max-width: 1128px;
+  display: flex;
+justify-content: space-between; 
+gap: 24px;
+}
+
+.gallery-image {
+height: 200px;
+border: 1px solid #808080;
+width: 360px;
+display: flex;
+justify-content: space-between; 
+}
