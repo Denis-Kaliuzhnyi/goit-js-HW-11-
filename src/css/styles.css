@@ -30,6 +30,8 @@ H1 {
 input {
   width: 272px;
   height: 40px;
+  color: #000;
+  background-color: #fff;
 }
 
 button {
@@ -50,20 +52,41 @@ button {
   font-size: 16px;
   line-height: 150%;
   letter-spacing: 0.04em;
-  color: #808080;
+  color: black;
+}
+
+.gallery {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 24px;
+  margin-top: 32px;
+  list-style-type: none;
 }
 
 .gallery-item {
-  max-width: 1128px;
-  display: flex;
-justify-content: space-between; 
-gap: 24px;
+  width: 360px;
+  border-color: #000;
+  border-radius: 10px;
+  background-color: #f1e5e5; /* Темный цвет фона */
+  color: #141313; /* Цвет текста */
+  padding: 5px; /* Отступы для контента внутри элемента */
 }
 
 .gallery-image {
-height: 200px;
-border: 1px solid #808080;
-width: 360px;
-display: flex;
-justify-content: space-between; 
+  width: 360px;
+  height: 200px;
+}
+
+.image-description {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px; /* Пространство между элементами в описании */
+}
+
+p {
+  flex: 1 0 calc(25% - 8px); /* 25% ширины контейнера за вычетом пространства между элементами */
+  text-align: center;
+  display: block;
 }

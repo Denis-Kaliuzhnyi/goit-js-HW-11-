@@ -31,10 +31,10 @@ const renderGalleryItem = image => {
   const description = document.createElement('div');
   description.classList.add('image-description');
   description.innerHTML = `
-    <p>Likes: ${image.likes}</p>
-    <p>Views: ${image.views}</p>
-    <p>Comments: ${image.comments}</p>
-    <p>Downloads: ${image.downloads}</p>
+    <p>Likes ${image.likes}</p>
+    <p>Views ${image.views}</p>
+    <p>Comments ${image.comments}</p>
+    <p>Downloads ${image.downloads}</p>
   `;
 
   link.appendChild(imageElement);
