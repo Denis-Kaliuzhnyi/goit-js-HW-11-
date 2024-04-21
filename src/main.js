@@ -32,7 +32,7 @@ form.addEventListener('submit', async (event) => {
     if (images.length === 0) {
       iziToast.warning({
         title: 'Warning',
-        message: '"Sorry, there are no images matching your search query. Please try again!"',
+        message: 'Sorry, there are no images matching your search query. Please try again!',
         position: 'topRight',
       });
     } else {
