@@ -10,7 +10,7 @@ const input = document.querySelector('.search-input');
 const gallery = document.querySelector('.gallery');
 const loader = document.querySelector('.loader');
 
-form.addEventListener('submit', async event => {
+form.addEventListener('submit', event => {
   event.preventDefault();
 
   const searchQuery = input.value.trim();
@@ -23,33 +23,35 @@ form.addEventListener('submit', async event => {
     return;
   }
 
-  loader.classList.add('loading'); 
+  loader.classList.add('loading');
   gallery.innerHTML = '';
 
-  try {
-    const images = await fetchImages(searchQuery);
-    if (images.length === 0) {
-      iziToast.warning({
-        title: 'Warning',
-        message:
-          'Sorry, there are no images matching your search query. Please try again!',
+  fetchImages(searchQuery)
+    .then(images => {
+      if (images.length === 0) {
+        iziToast.warning({
+          title: 'Warning',
+          message:
+            'Sorry, there are no images matching your search query. Please try again!',
+          position: 'topRight',
+        });
+      } else {
+        const galleryItems = images.map(renderGalleryItem);
+        gallery.append(...galleryItems);
+
+        const lightbox = new SimpleLightbox('.gallery a');
+        lightbox.refresh();
+      }
+    })
+    .catch(error => {
+      console.error('Error fetching images:', error);
+      iziToast.error({
+        title: 'Error',
+        message: 'Failed to fetch images. Please try again later',
         position: 'topRight',
       });
-    } else {
-      const galleryItems = images.map(renderGalleryItem);
-      gallery.append(...galleryItems);
-
-      const lightbox = new SimpleLightbox('.gallery a');
-      lightbox.refresh();
-    }
-  } catch (error) {
-    console.error('Error fetching images:', error);
-    iziToast.error({
-      title: 'Error',
-      message: 'Failed to fetch images. Please try again later',
-      position: 'topRight',
+    })
+    .finally(() => {
+      loader.classList.remove('loading');
     });
-  } finally {
-    loader.classList.remove('loading'); 
-  }
 });
