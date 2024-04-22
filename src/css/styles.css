@@ -100,7 +100,7 @@ p {
 
 }
 
-.loader {
+.loader.loading {
   width: 48px;
   height: 48px;
   border: 3px dotted #FFF;
@@ -111,7 +111,8 @@ p {
   box-sizing: border-box;
   animation: rotation 2s linear infinite;
 }
-.loader::after {
+
+.loader.loading::after {
   content: '';  
   box-sizing: border-box;
   position: absolute;
@@ -128,20 +129,7 @@ p {
   animation: rotationBack 1s linear infinite;
   transform-origin: center center;
 }
-    
-@keyframes rotation {
-  0% {
-    transform: rotate(0deg);
-  }
-  100% {
-    transform: rotate(360deg);
-  }
-} 
-@keyframes rotationBack {
-  0% {
-    transform: rotate(0deg);
-  }
-  100% {
-    transform: rotate(-360deg);
-  }
-} 
+
+.loader.loading.hidden {
+  display: none;
+}
