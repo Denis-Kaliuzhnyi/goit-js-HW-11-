@@ -5,13 +5,12 @@ import 'simplelightbox/dist/simple-lightbox.min.css';
 import { fetchImages } from './js/pixabay-api.js';
 import { renderGalleryItem } from './js/render-functions.js';
 
-
 const form = document.querySelector('.search-form');
 const input = document.querySelector('.search-input');
 const gallery = document.querySelector('.gallery');
 const loader = document.querySelector('.loader');
 
-form.addEventListener('submit', async (event) => {
+form.addEventListener('submit', async event => {
   event.preventDefault();
 
   const searchQuery = input.value.trim();
@@ -24,7 +23,7 @@ form.addEventListener('submit', async (event) => {
     return;
   }
 
-  loader.classList.add('loading');
+  loader.classList.add('loading'); 
   gallery.innerHTML = '';
 
   try {
@@ -32,7 +31,8 @@ form.addEventListener('submit', async (event) => {
     if (images.length === 0) {
       iziToast.warning({
         title: 'Warning',
-        message: 'Sorry, there are no images matching your search query. Please try again!',
+        message:
+          'Sorry, there are no images matching your search query. Please try again!',
         position: 'topRight',
       });
     } else {
@@ -50,6 +50,6 @@ form.addEventListener('submit', async (event) => {
       position: 'topRight',
     });
   } finally {
-    loader.classList.remove('loading');
+    loader.classList.remove('loading'); 
   }
 });
